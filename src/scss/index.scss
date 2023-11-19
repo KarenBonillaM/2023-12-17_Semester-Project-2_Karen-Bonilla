@@ -1,0 +1,149 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  background-color: $body-bg-color;
+  font-family: $font-family-body;
+}
+
+h1 {
+  font-family: $font-family-titles;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 2px #C9E5E9;
+}
+
+nav a {
+  color:black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.search {
+  height: 45px;
+}
+
+.search-input {
+  background-color: $categories-card-color;
+}
+
+.search-input::placeholder {
+  padding-left: 40px;
+}
+
+.search-icon {
+  font-size: 1.5em;
+  position: absolute;
+  padding: 10px;
+  color: #394C63;
+}
+
+.nav-options {
+  font-weight: bold;
+  font-size: 1.5em;
+  justify-content: space-between;
+}
+
+footer {
+  background-color: $footer-bg-color;
+  display: grid;
+  align-items: center;
+  color: white;
+  height: 290px;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+footer section{
+  display: flex;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links {
+  justify-content: space-around;
+  font-size: 1.8em;
+}
+
+.footer-bottom {
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+
+//HOME PAGE//
+
+.section-header {
+  margin: 20px 50px;
+  background-image: url(/images/header-background.jpg);
+  background-size: cover;
+  height: 330px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.header-white-text {
+  background-color: white;
+  font-size: 5em;
+  text-align: center;
+  font-family: $font-family-titles;
+  font-weight: bold;
+  color: #FFC815;
+}
+
+.main-contain-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: 30px 50px;
+}
+
+.categories-container {
+  padding: 25px 10px 0px 15px;
+  min-width: 250px;
+  border-radius: 8px;
+  background-color: $categories-card-color;
+}
+
+.categories-title {
+  font-family: $font-family-titles;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 1.8em;
+  padding-bottom: 10px;
+}
+
+.categories-container ul {
+list-style-type: none;
+font-size: 1.8em;
+line-height: 2;
+padding-left: 0px;
+}
+
+//REGISTER
+
+.section-register {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
