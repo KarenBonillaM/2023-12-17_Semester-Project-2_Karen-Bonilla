@@ -10850,4 +10850,46 @@ footer a {
   align-items: center;
 }
 
+.section-register p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.register-form {
+  display: flex;
+  justify-content: center;
+}
+
+#register-form {
+  width: 480px;
+}
+
+.form-input {
+  background-color: #BFD7EC;
+  padding: 1rem 0.75rem;
+}
+
+.form-label {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.btn-register-container {
+  display: grid;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #394C63;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0 35px;
+}
+
+.input-feedback {
+  color: #686666;
+  font-size: 0.8em;
+}
+
 /*# sourceMappingURL=index.css.map */
