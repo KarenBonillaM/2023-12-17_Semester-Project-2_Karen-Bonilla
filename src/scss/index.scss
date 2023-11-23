@@ -115,7 +115,7 @@ footer a {
 .main-contain-container {
   display: grid;
   grid-template-columns: auto 1fr;
-  margin: 30px 50px;
+  margin: 50px;
 }
 
 .categories-container {
@@ -123,6 +123,7 @@ footer a {
   min-width: 250px;
   border-radius: 8px;
   background-color: $categories-card-color;
+  height: fit-content;
 }
 
 .categories-title {
@@ -138,6 +139,39 @@ list-style-type: none;
 font-size: 1.8em;
 line-height: 2;
 padding-left: 0px;
+}
+
+.listings-Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
+}
+
+.card {
+  background-color: $card-bg-color;
+  border-radius: 0;
+}
+
+.card img {
+  margin: 25px;
+  max-width: 300px;
+  padding: 0;
+  height: 200px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.make-a-bid-BTN {
+  background-color: $footer-bg-color;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
 }
 
 //REGISTER
@@ -190,4 +224,26 @@ padding-left: 0px;
   font-size: 0.8em;
 }
 
+//ABOUT US
+.about-us {
+  display: grid;
+  justify-content: center;
+}
 
+.image-about-us-container {
+  justify-self: center;
+}
+
+.image-about-us-container img {
+  width: 900px;
+  height: 450px;
+}
+
+.about-us-container {
+  padding: 20px 120px;
+}
+
+.about-us-container p {
+  text-align: justify;
+  font-size: 1.3em;
+}
