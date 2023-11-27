@@ -12,6 +12,7 @@
     <script
       src="https://kit.fontawesome.com/ad1493ca4b.js"
       crossorigin="anonymous"></script>
+    <script src="/src/js/api/auth/register.mjs" type="module" defer></script>
     <title>Register | Decor Auction</title>
   </head>
   <body>
@@ -50,7 +51,7 @@
         </div>
         <section class="p-4 my-5 register-form">
           <div>
-            <form id="register-form">
+            <form id="register-form" action="/profile/index.html">
               <div class="mb-3">
                 <div>
                   <label for="name">Full Name</label>
@@ -75,8 +76,9 @@
                     pattern="^[\w\-.]+@(stud.)?noroff.no$"
                     title="Only @(stud).noroff.no domains are allowed to register."
                     required />
-                  <div class="invalid-feedback">
-                    Only stud.noroff.no emails are allowed to register.
+                  <div class="input-feedback">
+                    Email must be a valid stud.noroff.no or noroff.no email
+                    address.
                   </div>
                 </div>
               </div>
