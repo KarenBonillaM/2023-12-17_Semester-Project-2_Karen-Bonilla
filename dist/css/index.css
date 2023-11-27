@@ -10894,7 +10894,8 @@ footer a {
   justify-content: center;
 }
 
-#register-form {
+#register-form,
+#login-form {
   width: 480px;
 }
 
