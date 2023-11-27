@@ -1,7 +1,7 @@
-const API_HOST_URL = 'https://api.noroff.dev';
-const API_BASE = '/api/v1';
-const API_AUCTION_BASE = '/auction';
-const API_AUCTION_URL = `${API_HOST_URL}${API_BASE}${API_AUCTION_BASE}`;
+export const API_HOST_URL = 'https://api.noroff.dev';
+export const API_BASE = '/api/v1';
+export const API_AUCTION_BASE = '/auction';
+export const API_AUCTION_URL = `${API_HOST_URL}${API_BASE}${API_AUCTION_BASE}`;
 
 const action = "/listings";
 const listingsContainer = document.querySelector(".listings-Container");
