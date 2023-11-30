@@ -12,7 +12,8 @@
     <script
       src="https://kit.fontawesome.com/ad1493ca4b.js"
       crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title id="titleProfile"></title>
+    <script src="/src/js/api/profile/index.mjs" type="module" defer></script>
   </head>
   <body>
     <header>
@@ -33,19 +34,14 @@
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
           </form>
           <section class="d-flex nav-options col-2">
-            <a href="#">Sell</a>
+            <a href="/profile/sell/">Sell</a>
             <a href="#">Logout</a>
           </section>
         </div>
       </nav>
     </header>
     <main>
-      <section class="col-12">
-        <div class="profile-header">
-          <div></div>
-          <div></div>
-        </div>
-      </section>
+      <section class="user-profile profile-header"></section>
       <div class="main-contain-container">
         <section class="categories-container">
           <div>
@@ -64,7 +60,10 @@
         </section>
         <section class="listing-section">
           <h1>Your Listings</h1>
-          <div class="listing-profile-container"></div>
+          <a>
+            <button>Create a new listing</button>
+          </a>
+          <section class="listing-profile-container"></section>
         </section>
       </div>
     </main>

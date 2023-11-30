@@ -10950,4 +10950,36 @@ footer a {
   font-size: 1.3em;
 }
 
+.user-profile {
+  background-color: #E3F8FB;
+  margin: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.user-profile-card {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  justify-self: center;
+}
+
+.user-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.user-info {
+  background-color: #BFD7EC;
+  margin: 50px;
+  min-height: 350px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.user-credits {
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
 /*# sourceMappingURL=index.css.map */
