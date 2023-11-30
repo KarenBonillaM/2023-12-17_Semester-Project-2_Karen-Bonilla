@@ -12,8 +12,8 @@
     <script
       src="https://kit.fontawesome.com/ad1493ca4b.js"
       crossorigin="anonymous"></script>
-    <title>Login | Decor Auction</title>
-    <script src="/src/js/api/auth/login.mjs" type="module" refer></script>
+    <title>Sell | Decor Auction</title>
+    <script src="/src/js/api/listings/create.mjs" type="module" defer></script>
   </head>
   <body>
     <header>
@@ -34,8 +34,8 @@
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
           </form>
           <section class="d-flex nav-options col-2">
-            <a href="/profile/sell/">Sell</a>
             <a href="/profile/register/">Register</a>
+            <a href="/profile/login/">Login</a>
           </section>
         </div>
       </nav>
@@ -43,50 +43,81 @@
     <main>
       <section class="section-register">
         <div class="register-container mt-5">
-          <h1 class="mb-5">Login</h1>
-          <p>Welcome back!</p>
+          <h1 class="mb-5">Sell your treasures with Decor Auction</h1>
         </div>
         <section class="p-4 my-5 register-form">
           <div>
-            <form id="login-form">
+            <form id="sell-new-item-form">
               <div class="mb-3">
                 <div>
-                  <label for="email" class="form-label">Email</label>
+                  <label for="title">Title</label>
                   <input
-                    type="email"
+                    type="text"
+                    name="title"
                     class="form-control form-input"
-                    id="email"
-                    name="email"
-                    pattern="^[\w\-.]+@(stud.)?noroff.no$"
-                    title="Only @(stud).noroff.no domains are allowed to register."
+                    id="title"
                     required />
-                  <div class="invalid-feedback">
-                    Only stud.noroff.no emails are allowed to register.
+                </div>
+              </div>
+              <div class="mb-3">
+                <div>
+                  <label for="description" class="form-label"
+                    >Description</label
+                  >
+                  <textarea
+                    class="form-control form-input"
+                    name="description"
+                    id="description"></textarea>
+                  <div class="input-feedback">
+                    Description can't be greater than 280 characters long.
                   </div>
                 </div>
               </div>
               <div class="mb-3">
                 <div>
-                  <label for="password" class="form-label">Password</label>
+                  <label for="endsAt" class="form-label">
+                    Auction ends at:
+                  </label>
                   <input
-                    type="password"
-                    name="password"
+                    type="datetime-local"
+                    name="endsAt"
                     class="form-control form-input"
-                    id="password"
-                    required
-                    minlength="8" />
+                    id="endsAt"
+                    required />
                 </div>
               </div>
-              <div class="btn-register-container">
+              <div class="mb-3">
+                <div>
+                  <label for="tags">Tags</label>
+                  <input
+                    type="text"
+                    class="form-control form-input"
+                    id="tag-input"
+                    name="tags" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <div>
+                  <label for="media" class="form-label">Media</label>
+                  <input
+                    type="url"
+                    name="media"
+                    placeholder="Url"
+                    class="form-control form-input"
+                    id="media" />
+                </div>
+              </div>
+              <div class="btn-sell-new-item-container">
                 <div class="col-6 d-grid">
                   <button type="submit" class="btn btn-primary mt-4">
-                    Login
+                    Sell now
                   </button>
                 </div>
               </div>
             </form>
           </div>
         </section>
+        <section class="new-listing-container"></section>
       </section>
     </main>
     <footer>
