@@ -98,18 +98,21 @@ footer a {
   margin: 20px 50px;
   background-image: url(/images/header-background.jpg);
   background-size: cover;
-  height: 330px;
+  height: 480px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .header-white-text {
   background-color: white;
-  font-size: 5em;
+  font-size: 5.5em;
+  padding: 10px 30px;
+  line-height: 1.2em;
   text-align: center;
   font-family: $font-family-titles;
   font-weight: bold;
   color: #FFC815;
+  text-transform: uppercase;
 }
 
 .main-contain-container {
@@ -281,4 +284,48 @@ padding-left: 0px;
 .user-credits {
   font-weight: bold;
   font-size: 1.8em;
+}
+
+//SELL PAGE
+
+.section-sell-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 100px;
+}
+
+#sell-new-item-form input {
+  width: 400px;
+}
+
+#sell-new-item-form button {
+  padding: 6px 0;
+}
+
+.sell-btn-container {
+  margin: auto;
+}
+.new-listing-container {
+  display: grid;
+  margin: auto;
+}
+
+.new-listing-title {
+  text-align: center;
+}
+
+.new-listing-media {
+  max-height: 1200px;
+}
+
+.new-listing-description {
+  text-align: left;
+}
+
+
+//DETAILS PAGE
+
+.bid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }

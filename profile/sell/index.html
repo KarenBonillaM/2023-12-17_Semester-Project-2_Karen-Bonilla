@@ -41,10 +41,10 @@
       </nav>
     </header>
     <main>
-      <section class="section-register">
-        <div class="register-container mt-5">
-          <h1 class="mb-5">Sell your treasures with Decor Auction</h1>
-        </div>
+      <div class="register-container mt-5">
+        <h1 class="mb-5">Sell your treasures with Decor Auction</h1>
+      </div>
+      <section class="section-register section-sell-item">
         <section class="p-4 my-5 register-form">
           <div>
             <form id="sell-new-item-form">
@@ -69,7 +69,7 @@
                     name="description"
                     id="description"></textarea>
                   <div class="input-feedback">
-                    Description can't be greater than 280 characters long.
+                    Description can't be greater than 280 characters long
                   </div>
                 </div>
               </div>
@@ -94,6 +94,9 @@
                     class="form-control form-input"
                     id="tag-input"
                     name="tags" />
+                  <div class="input-feedback">
+                    Separate every tag with a ","
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -108,7 +111,7 @@
                 </div>
               </div>
               <div class="btn-sell-new-item-container">
-                <div class="col-6 d-grid">
+                <div class="col-6 sell-btn-container d-grid">
                   <button type="submit" class="btn btn-primary mt-4">
                     Sell now
                   </button>
@@ -117,7 +120,7 @@
             </form>
           </div>
         </section>
-        <section class="new-listing-container"></section>
+        <section class="new-listing-container col-6"></section>
       </section>
     </main>
     <footer>

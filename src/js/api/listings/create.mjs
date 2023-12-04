@@ -72,6 +72,10 @@ function createListingForm() {
 
         form.reset();
 
+
+      //DISPLAY THE NEWLY CREATED LISTING IN THE DOM
+
+      createNewListing(createdListing);
         
       } catch (error) {
         console.error("Error creating new listing:", error);
@@ -83,14 +87,36 @@ function createListingForm() {
 createListingForm();
 
 function createNewListing(newListing) {
-  const listing = createListingForm()
-
   const newListingContainer = document.querySelector(".new-listing-container");
 
   const newListingTitle = document.createElement("h2");
   newListingTitle.classList.add("new-listing-title");
-  newListingTitle.innerHTML = listing.title.value;
+  newListingTitle.innerHTML = newListing.title;
 
   newListingContainer.append(newListingTitle);
+
+  const newListingMedia = document.createElement("img");
+  newListingMedia.src = newListing.media
+  newListingMedia.classList.add("new-listing-media");
+  newListingMedia.classList.add("thumbnail-img");
+  newListingMedia.classList.add("img-fluid");
+  newListingMedia.classList.add("img-thumbnail");
+
+  console.log(newListingMedia);
+
+  newListingContainer.append(newListingMedia);
+
+  const newListingDescription = document.createElement("p");
+  newListingDescription.classList.add("new-listing-description");
+  newListingDescription.innerHTML = newListing.description;
+
+  newListingContainer.append(newListingDescription);
+
+  const newListingEndsAt = document.createElement("div");
+  newListingEndsAt.classList.add("new-listing-ends-at");
+  newListingEndsAt.innerHTML = `Action ends ${newListing.endsAt}`;
+
+  newListingContainer.append(newListingEndsAt);
+
 }
 
