@@ -73,9 +73,6 @@ async function createProfileHTML(){
 
   userInfoContainer.append(userCredits);
 
-
-
-
 }
 
 createProfileHTML();
@@ -91,14 +88,106 @@ function load(key) {
 }
 
 
+
+
+
 //FETCH USER LISTINGS
 async function getUserListings() {
   const getListingUserURL = `${API_AUCTION_URL}${action}`;
 
-  const response = await authFetch(getListingUserURL)
+  const response = await authFetch(getListingUserURL);
 
-  await response.json()
-  console.log(getListingUserURL);
+  const userListings = await response.json();
+
+  return userListings;
 }
 
-getUserListings()
+function createUserListingHTML(userListing) {
+
+  const userListingsContainer = document.querySelector(".listing-profile-container");
+
+  const listingContainer = document.createElement("div");
+  listingContainer.classList.add("card");
+
+  userListingsContainer.append(listingContainer);
+
+
+  //MEDIA
+  
+  if(userListing.media) {
+    const img = document.createElement("img");
+    img.classList.add("thumbnail-img");
+    img.classList.add("img-fluid");
+    img.classList.add("img-thumbnail");
+    img.classList.add("card-img-top");
+
+    img.src = userListing.media;
+    img.alt = `Image from ${userListing.tile}`;
+  
+    listingContainer.append(img);
+  }
+
+  // const mediaValue = listing.media[0];
+
+  // if(!listing.media.includes(mediaValue)) {
+  //   listingContainer.style.display = "none";
+  // }
+  
+  const listingBody = document.createElement("section");
+  listingBody.classList.add("card-body");
+  listingContainer.append(listingBody);
+
+  const listingBodyInfo = document.createElement("div");
+  listingBodyInfo.classList.add("listing-body-info");
+  listingBody.append(listingBodyInfo)
+
+  //TITLE
+  const listingTitle = document.createElement("h5");
+  listingTitle.classList.add("listing-title");
+  listingTitle.classList.add("card-title");
+
+  listingTitle.innerHTML = userListing.title;
+  listingBodyInfo.append(listingTitle);
+
+  //TAGS
+
+  // for(let i = 0; i < userListing.tags.length; i ++) {
+  //   const tag = userListing.tags[i];
+  //   const listingTags = document.createElement("p");
+  //   listingTags.classList.add("listing-tags");
+  //   listingTags.innerHTML = tag;
+  //   listingBodyInfo.append(listingTags);
+  // }
+
+  //BIDS
+
+  const bidsNumber = userListing._count["bids"];
+  const listingBids = document.createElement("div");
+  listingBids.classList.add("listing-bids");
+  listingBids.innerHTML = `Bids: ${bidsNumber}`
+  listingBodyInfo.append(listingBids);
+
+  const listingBodyBTN = document.createElement("div");
+  listingBodyBTN.classList.add("listing-body-BTN");
+  listingBody.append(listingBodyBTN)
+
+  const makeABidBTN = document.createElement("button");
+  makeABidBTN.classList.add("make-a-bid-BTN");
+  makeABidBTN.innerHTML = "Make a Bid";
+  listingBodyBTN.append(makeABidBTN);
+}
+
+
+function createListingsHTML (userListings) {
+  for (let i = 0; i < userListings.length; i++) {
+    const listing = userListings[i];
+    createUserListingHTML(listing);
+  }
+}
+
+async function listingsSection () {
+  const listings = await getUserListings();
+  createListingsHTML(listings);
+}
+
+listingsSection()
