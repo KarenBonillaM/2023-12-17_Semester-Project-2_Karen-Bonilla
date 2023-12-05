@@ -67,6 +67,7 @@ function createListingHTML(listing) {
     const listingTags = document.createElement("p");
     listingTags.classList.add("listing-tags");
     listingTags.innerHTML = tag;
+    listingTags.style.display = "none";
     listingBodyInfo.append(listingTags);
   }
 
@@ -80,12 +81,17 @@ function createListingHTML(listing) {
 
   const listingBodyBTN = document.createElement("div");
   listingBodyBTN.classList.add("listing-body-BTN");
-  listingBody.append(listingBodyBTN)
+  listingBody.append(listingBodyBTN);
+
+  const redirectDetails = document.createElement("a");
+  redirectDetails.href =  `/listing/edit/index.html?id=${listing.id}`;
+
+  listingBodyBTN.append(redirectDetails);
 
   const makeABidBTN = document.createElement("button");
   makeABidBTN.classList.add("make-a-bid-BTN");
   makeABidBTN.innerHTML = "Make a Bid";
-  listingBodyBTN.append(makeABidBTN);
+  redirectDetails.append(makeABidBTN);
 }
 
 
