@@ -7,11 +7,11 @@ function save(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-// function getToken() {
-//   return localStorage.getItem("token");
+// function getProfile() {
+//   return localStorage.getItem("profile");
 // }
 
-// const savedToken = getToken();
+// const savedProfile = getProfile();
 
 async function login(profile) {
   const loginURL = API_AUCTION_URL + action;
@@ -24,23 +24,28 @@ async function login(profile) {
     method,
     body
   });
+ 
   if(response.ok) {
-    window.location.pathname = "/profile/";
-   console.log("Redirected!");
+    const { accessToken, ...user} = await response.json();
+
+    save("token", accessToken);
+    save("profile", user);
+
+    const encodedName = encodeURIComponent(user.name);
+    const redirectURL = `/profile/index.html?name=${encodedName}`;
+
+    window.location.href = redirectURL;
+
   } else {
     console.error("Login failed. Status:", response.status);  
   }
-  const { accessToken, ...user} = await response.json();
-
- save("token", accessToken);
- save("profile", user);
 
 }
 
-// if (savedToken) {
-//   console.log("Token is present:", savedToken);
+// if (savedProfile) {
+//   console.log("Profile is present:", savedProfile);
 // } else {
-//   console.log("Token not found in localStorage");
+//   console.log("Profile not found in localStorage");
 // }
 
 
