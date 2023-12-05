@@ -5,7 +5,10 @@ const params = new URLSearchParams(queryString);
 const title = document.getElementById("listingTitle");
 const id = params.get("id");
 
+
 const action = "/listings/" + id;
+const actionForNewBids = "/bids";
+const method = "post";
 
 async function fetchListing() {
   const getListingURL = `${API_AUCTION_URL}${action}`;
@@ -18,7 +21,7 @@ async function fetchListing() {
 
 function createListingDetailsHTML(listing) {
 
-  const listingDetailsContainer = document.querySelector(".listing-details-section");
+  const listingDetailsContainer = document.querySelector(".listing-details-container");
   listingDetailsContainer.classList.add("col-7")
 
   const listingTitle = document.createElement("h1");
@@ -122,3 +125,72 @@ async function listingsBidsSection() {
 
 listingsBidsSection();
 
+
+
+//MAKE A NEW BID
+
+function load(key) {
+  try{
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
+  } catch {
+    return null
+  }
+}
+
+function headers() {
+  const token = load("token");
+
+  return{
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`
+  }
+}
+
+
+async function authFetch(url, options = {}) {
+  return fetch(url, {
+    ...options,
+    headers: headers()
+  })
+}
+
+
+async function makeABid(amount) {
+  const createANewBidURL = `${API_AUCTION_URL}${action}${actionForNewBids}`;
+
+  const response = await authFetch(createANewBidURL, {
+    method,
+    body: JSON.stringify(amount)
+  });
+
+  return await response.json()
+}
+
+
+function makeABidForm() {
+  const makeABidForm = document.querySelector("#form-make-a-bid");
+
+  makeABidForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const amount = document.getElementById("amount").value;
+
+    if(!amount) {
+      alert("Please enter a valid numeric amount");
+      return;
+    }
+   
+
+    const formData = { amount: parseFloat(amount)}
+
+    try{
+      const createBid = await makeABid(formData);
+      alert("Bid created successfully", createBid)
+
+    } catch(error) {
+      console.error("Error creating new bid:", error);
+    }
+  });
+}
+
+makeABidForm()
