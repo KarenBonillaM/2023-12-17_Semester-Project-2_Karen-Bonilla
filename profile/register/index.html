@@ -54,7 +54,7 @@
             <form id="register-form" action="/profile/index.html">
               <div class="mb-3">
                 <div>
-                  <label for="name">Full Name</label>
+                  <label for="name">Name</label>
                   <input
                     type="text"
                     class="form-control form-input"
@@ -63,6 +63,10 @@
                     pattern="^[\w]+$"
                     title="Username must have only lowercase and uppercase letters, numbers and underscore."
                     required />
+                  <div class="input-feedback">
+                    The name value must not contain punctuation symbols apart
+                    from underscore (_)
+                  </div>
                 </div>
               </div>
               <div class="mb-3">
