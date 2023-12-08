@@ -14,6 +14,10 @@
       crossorigin="anonymous"></script>
     <title id="titleProfile"></title>
     <script src="/src/js/api/profile/index.mjs" type="module" defer></script>
+    <script
+      src="/src/js/api/profile/updateAvatar.mjs"
+      type="module"
+      defer></script>
     <script src="/src/js/api/auth/logout.mjs" type="module" defer></script>
   </head>
   <body>
@@ -42,16 +46,28 @@
       </nav>
     </header>
     <main>
-      <section class="user-profile profile-header">
-        <section class="update-avatar-container">
-          <form>
-            <label for="avatar-update"></label>
+      <section class="user-profile">
+        <div class="profile-header user-profile-card"></div>
+        <div class="btn-update-avatar-container">
+          <button class="btn btn-update-avatar btn-primary">
+            Update Avatar
+          </button>
+        </div>
+        <div class="profile-credits"></div>
+        <section id="update-avatar-container">
+          <span class="delete-icon">&times;</span>
+          <div class="popup-avatar">
+            <img class="update-avatar-img" />
+          </div>
+          <form class="form-update-avatar">
+            <label for="avatar">Edit your Avatar</label>
             <input
               type="url"
-              name="avatar-update"
+              name="avatar"
+              class="form-control"
               placeholder="url"
               id="avatar-update" />
-            <button type="submit" class="btn">Update Avatar</button>
+            <button type="submit" class="btn btn-primary">Update Avatar</button>
           </form>
         </section>
       </section>
@@ -73,8 +89,10 @@
         </section>
         <section class="listing-section">
           <h1>Your Listings</h1>
-          <a>
-            <button>Create a new listing</button>
+          <a href="/profile/sell/index.html">
+            <button class="btn btn-primary btn-sell">
+              Create a new listing
+            </button>
           </a>
           <section
             class="listings-Container listing-profile-container"></section>
