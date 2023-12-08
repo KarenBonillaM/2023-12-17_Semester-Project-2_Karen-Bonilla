@@ -153,6 +153,7 @@ padding-left: 0px;
 .card {
   background-color: $card-bg-color;
   border-radius: 0;
+  overflow: hidden;
 }
 
 .card img {
@@ -168,7 +169,8 @@ padding-left: 0px;
   padding: 0 30px;
 }
 
-.make-a-bid-BTN {
+.make-a-bid-BTN,
+.details-btn {
   background-color: $footer-bg-color;
   color: white;
   font-weight: bold;
@@ -259,7 +261,22 @@ padding-left: 0px;
   margin: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-rows: auto;
   align-items: center;
+}
+
+.profile-header, .btn-update-avatar-container {
+  grid-column: 1;
+}
+
+.profile-credits {
+  grid-column: 2;
+}
+
+.btn-update-avatar-container {
+  grid-row: 2;
+  text-align: center;
 }
 
 .user-profile-card {
@@ -286,9 +303,45 @@ padding-left: 0px;
   font-size: 1.8em;
 }
 
-.update-avatar-container {
+#update-avatar-container {
   display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .8);
 }
+
+#update-avatar-container span {
+  font-size: 5em;
+  font-weight: bolder;
+  position: absolute;
+  top: 0;
+  right: 100px;
+  z-index: 100;
+  color: white;
+  cursor: pointer;
+}
+
+#update-avatar-container label {
+  font-size: 2em;
+  color: white;
+}
+
+#update-avatar-container input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-sell {
+  text-align: center;
+  justify-self: center;
+}
+
 
 //SELL PAGE
 
