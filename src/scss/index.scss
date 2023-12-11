@@ -18,12 +18,23 @@ h1 {
   font-weight: bold;
   font-size: 2em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .navbar {
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: solid 2px #C9E5E9;
+  justify-content: center;
+}
+
+.logo {
+ width: 100%;
+}
+
+.search {
+  justify-content: center;
+  position: relative;
 }
 
 nav a {
@@ -36,16 +47,14 @@ nav a {
   margin-right: 0;
 }
 
-.search {
-  height: 45px;
-}
-
 .search-input {
   background-color: $categories-card-color;
+  width: 80%;
+  height: 50px;
 }
 
 .search-input::placeholder {
-  padding-left: 40px;
+  padding-left: 25px;
 }
 
 .search-icon {
@@ -53,6 +62,11 @@ nav a {
   position: absolute;
   padding: 10px;
   color: #394C63;
+  right: 80px;
+}
+
+#menu-icon {
+  width: 80px;
 }
 
 .nav-options {
@@ -144,20 +158,17 @@ line-height: 2;
 padding-left: 0px;
 }
 
-.listings-Container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 30px;
-}
-
 .card {
   background-color: $card-bg-color;
   border-radius: 0;
   overflow: hidden;
+  padding: 15px 0 15px;
+  height: 300px;
+  width: 356px;
 }
 
 .card img {
-  margin: 25px;
+  margin: auto;
   max-width: 300px;
   padding: 0;
   height: 200px;
@@ -266,6 +277,11 @@ padding-left: 0px;
   align-items: center;
 }
 
+.user-avatar {
+  max-width: 200px;
+  border-radius: 10px;
+}
+
 .profile-header, .btn-update-avatar-container {
   grid-column: 1;
 }
@@ -281,7 +297,6 @@ padding-left: 0px;
 
 .user-profile-card {
   margin-top: 0px;
-  margin-bottom: 30px;
   justify-self: center;
 }
 
@@ -296,11 +311,18 @@ padding-left: 0px;
   min-height: 350px;
   border-radius: 20px;
   text-align: center;
+  display: grid;
+  align-items: center;
 }
 
 .user-credits {
   font-weight: bold;
   font-size: 1.8em;
+  background-color: $profile-card-bg-color;
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+  border-radius: 7px;
 }
 
 #update-avatar-container {
@@ -337,9 +359,18 @@ padding-left: 0px;
   margin-bottom: 20px;
 }
 
+.btn-sell-container {
+  text-align: center;
+}
+
 .btn-sell {
   text-align: center;
   justify-self: center;
+}
+
+.popup-image-avatar {
+  max-width: 260px;
+  border-radius: 130%;
 }
 
 
@@ -377,6 +408,7 @@ padding-left: 0px;
 
 .new-listing-description {
   text-align: left;
+  font-size: 1.3em;
 }
 
 
@@ -385,4 +417,157 @@ padding-left: 0px;
 .bid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.body-bids {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bid-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#form-make-a-bid {
+  display: flex;
+  max-height: 50px;
+  justify-content: space-between;
+}
+
+#amount {
+  max-width: 350px;
+}
+
+//DELETE LISTING PAGE
+
+.listing-edit-section,
+.listing-details-section {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.listing-details-description {
+  font-size: 1.5em;
+}
+
+.listing-details-media {
+  max-height: 600px;
+}
+
+@media (min-width: 800px) and (max-width: 991px) {
+  #nav-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logo-container {
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+  }
+
+  .search {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: span col-2-start;
+    width: 150%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  #menu-icon {
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .nav-options {
+    display: none;
+    grid-row: 3;
+    font-size: 1.3em;
+  }
+
+  .nav-options a {
+    padding-right: 40px;
+    padding-top: 10px;
+  }
+}
+
+
+
+@media(max-width: 799px) { 
+  .nav-options {
+    display: none;
+    grid-row: 3;
+    font-size: 1em;
+  }
+
+  .nav-options a {
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+
+  #nav-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logo-container {
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+  }
+
+  .search {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: span col-2-start;
+    width: 150%;
+  }
+
+  #menu-icon {
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .search-input {
+    height: 40px;
+    width: 100%;
+  }
+
+  .search-input::placeholder {
+    padding-left: 10px;
+    font-size: 0.8em;
+  }
+
+  .search-icon {
+    right: 50px;
+    font-size: 1em;
+  }
+
+  .section-header {
+    margin: 20px 20px;
+    height: auto;
+  }
+
+  .header-white-text {
+    font-size: 2em;
+  }
+
+  .main-contain-container {
+    margin: 20px;
+  }
+
+  .categories-container {
+    display: none;
+  }
+
+  .listings-Container {
+    justify-content: center;
+  }
 }
