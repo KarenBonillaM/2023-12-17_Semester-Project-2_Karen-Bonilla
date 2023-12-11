@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Profile page for users of Decor Auction. People selling and buying home decor treasures" />
     <link rel="stylesheet" href="/dist/css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -22,15 +25,20 @@
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <div class="container">
-          <a class="navbar-brand col-2" href="../index.html">
-            <img
-              src="/images/decor-auction_logo.png"
-              alt="Decor Auction logo"
-              width="250" />
-          </a>
-          <form class="d-flex search col-6" role="search">
+      <nav class="navbar navbar-expand-lg">
+        <section id="nav-container" class="container row">
+          <section class="logo-container col navbar-brand col-3">
+            <a href="../index.html">
+              <img
+                class="logo"
+                src="/images/decor-auction_logo.png"
+                alt="Decor Auction logo" />
+            </a>
+          </section>
+          <form
+            class="d-flex search col-6 navbar-collapse collapse nav-form"
+            id="navbarSupportedContent"
+            role="search">
             <input
               class="form-control me-2 search-input"
               type="search"
@@ -38,18 +46,29 @@
               aria-label="Search" />
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
           </form>
-          <section class="d-flex nav-options col-2">
-            <a href="/profile/sell/">Sell</a>
-            <button class="btn-logout">Logout</button>
+          <button
+            id="menu-icon"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <section class="nav-options col-3">
+            <a href="/profile/register">Register</a>
+            <a href="/profile/login/">Login</a>
           </section>
-        </div>
+        </section>
       </nav>
     </header>
     <main>
       <section class="user-profile">
         <div class="profile-header user-profile-card"></div>
         <div class="btn-update-avatar-container">
-          <button class="btn btn-update-avatar btn-primary">
+          <button class="btn btn-update-avatar btn-primary mb-5 mt-0">
             Update Avatar
           </button>
         </div>
@@ -89,13 +108,15 @@
         </section>
         <section class="listing-section">
           <h1>Your Listings</h1>
-          <a href="/profile/sell/index.html">
-            <button class="btn btn-primary btn-sell">
-              Create a new listing
-            </button>
-          </a>
+          <div class="btn-sell-container">
+            <a href="/profile/sell/index.html">
+              <button class="btn btn-primary btn-sell mt-3 mb-5">
+                Create a new listing
+              </button>
+            </a>
+          </div>
           <section
-            class="listings-Container listing-profile-container"></section>
+            class="listings-Container listing-profile-container row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-4"></section>
         </section>
       </div>
     </main>
