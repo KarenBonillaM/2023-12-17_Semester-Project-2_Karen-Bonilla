@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/ad1493ca4b.js"
+      crossorigin="anonymous"></script>
+    <title id="listingTitle"></title>
+    <script
+      src="/src/js/api/listings/singleListing.mjs"
+      type="module"
+      refer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <a class="navbar-brand col-2" href="/index.html">
+            <img
+              src="/images/decor-auction_logo.png"
+              alt="Decor Auction logo"
+              width="250" />
+          </a>
+          <form class="d-flex search col-6" role="search">
+            <input
+              class="form-control me-2 search-input"
+              type="search"
+              placeholder="Find your perfect home complement"
+              aria-label="Search" />
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          </form>
+          <button
+            id="menu-icon"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <section class="d-flex nav-options col-2">
+            <a href="/profile/sell/">Sell</a>
+            <a href="#">Logout</a>
+          </section>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="listing-details-section">
+        <section class="listing-details-container"></section>
+        <section class="listing-container">
+          <div class="body-bids">
+            <div class="bidder-name-container">
+              <h2 id="bidder-name" class="bid-title">Bidder User</h2>
+            </div>
+            <div class="bids-amount-container">
+              <h2 id="bids-amount" class="bid-title">Bids Amount</h2>
+            </div>
+            <div class="bid-date-container">
+              <h2 id="bid-date" class="bid-title">Date Created</h2>
+            </div>
+          </div>
+          <form id="form-make-a-bid" class="mb-5 mt-4">
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              placeholder="amount"
+              class="form-control"
+              required />
+            <button class="btn btn-primary" type="submit">Make a Bid</button>
+          </form>
+        </section>
+      </section>
+      <section class="card-user-info"></section>
+    </main>
+    <footer>
+      <section class="footer-links">
+        <div><a href="/about/">About Us </a></div>
+        <div><a href="/privacy-policy/">Privacy Policy</a></div>
+      </section>
+      <section class="footer-bottom">
+        <div>Webpage by Karen Bonilla</div>
+        <div>&#169; 2023 Decor Auction</div>
+      </section>
+    </footer>
+  </body>
+</html>
