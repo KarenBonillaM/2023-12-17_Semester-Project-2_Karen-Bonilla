@@ -16,15 +16,20 @@
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <div class="container">
-          <a class="navbar-brand col-2" href="../index.html">
-            <img
-              src="/images/decor-auction_logo.png"
-              alt="Decor Auction logo"
-              width="250" />
-          </a>
-          <form class="d-flex search col-6" role="search">
+      <nav class="navbar navbar-expand-lg">
+        <section id="nav-container" class="container row">
+          <section class="logo-container col navbar-brand col-3">
+            <a href="/index.html">
+              <img
+                class="logo"
+                src="/images/decor-auction_logo.png"
+                alt="Decor Auction logo" />
+            </a>
+          </section>
+          <form
+            class="d-flex search col-6 navbar-collapse collapse nav-form"
+            id="navbarSupportedContent"
+            role="search">
             <input
               class="form-control me-2 search-input"
               type="search"
@@ -32,11 +37,22 @@
               aria-label="Search" />
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
           </form>
-          <section class="d-flex nav-options col-2">
-            <a href="/profile/sell/">Sell</a>
-            <a href="#">Logout</a>
+          <button
+            id="menu-icon"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <section class="nav-options col-3">
+            <a href="/profile/register">Register</a>
+            <a href="/profile/login/">Login</a>
           </section>
-        </div>
+        </section>
       </nav>
     </header>
     <main>
