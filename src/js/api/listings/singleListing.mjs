@@ -22,11 +22,14 @@ async function fetchListing() {
 function createListingDetailsHTML(listing) {
 
   const listingDetailsContainer = document.querySelector(".listing-details-container");
-  listingDetailsContainer.classList.add("col-7")
 
   const listingTitle = document.createElement("h1");
   listingTitle.classList.add("listing-details-title");
+  listingTitle.classList.add("mt-5");
+  listingTitle.classList.add("mb-4");
   listingTitle.innerHTML = listing.title;
+
+  title.innerText = listing.title;
 
   listingDetailsContainer.append(listingTitle);
 
@@ -35,6 +38,7 @@ function createListingDetailsHTML(listing) {
   listingMedia.classList.add("thumbnail-img");
   listingMedia.classList.add("img-fluid");
   listingMedia.classList.add("img-thumbnail");
+  listingMedia.classList.add("mb-4");
   listingMedia.src = listing.media;
   listingMedia.alt = `Image from ${listing.title}`;
 
@@ -49,7 +53,8 @@ function createListingDetailsHTML(listing) {
 
   const listingEndsAt = document.createElement("div");
   listingEndsAt.classList.add("listing-details-endsAt");
-  listingEndsAt.textContent = listing.endsAt;
+  listingEndsAt.classList.add("mb-3");
+  listingEndsAt.textContent = `Listing ends at: ${listing.endsAt}`;
 
   listingDetailsContainer.append(listingEndsAt);
 }
@@ -73,38 +78,37 @@ async function getListingsBids() {
 }
 
 function createListingBidHTML(listingBid) {
+  // const bidsBodyHistory = document.querySelector(".body-bids");
 
-  const bidsBodyHistory = document.querySelector(".body-bids");
+  const bidderTitleContainer = document.querySelector(".bidder-name-container");
 
-  const bidListingContainer = document.createElement("div");
-  bidListingContainer.classList.add("bid-container");
+  const bidsAmountTitleContainer = document.querySelector(".bids-amount-container");
 
-  bidsBodyHistory.append(bidListingContainer);
-
-  const bidderNameTitle = document.createElement("h2");
-  bidderNameTitle.classList.add("bid")
-
+  const bidsCreatedDateContainer = document.querySelector(".bid-date-container");
 
   //BID NAME
   const bidderListingName = document.createElement("div");
   bidderListingName.classList.add("bidder-name");
   bidderListingName.textContent = listingBid.bidderName;
   
-  bidListingContainer.append(bidderListingName);
+  bidderTitleContainer.append(bidderListingName);
+
 
   //BID AMOUNT
+
   const bidAmount = document.createElement("div");
   bidAmount.classList.add("bid-amount");
   bidAmount.textContent = listingBid.amount;
 
-  bidListingContainer.append(bidAmount);
+  bidsAmountTitleContainer.append(bidAmount);
 
   //BID DATE CREATED
+
   const bidCreated = document.createElement("div");
   bidCreated.classList.add("bid-created");
   bidCreated.textContent = listingBid.created;
 
-  bidListingContainer.append(bidCreated);
+  bidsCreatedDateContainer.append(bidCreated);
 
 }
 
