@@ -102,21 +102,56 @@ function createNewListing(newListing) {
   newListingMedia.classList.add("img-fluid");
   newListingMedia.classList.add("img-thumbnail");
 
-  console.log(newListingMedia);
-
   newListingContainer.append(newListingMedia);
 
   const newListingDescription = document.createElement("p");
   newListingDescription.classList.add("new-listing-description");
+  newListingDescription.classList.add("mt-2");
   newListingDescription.innerHTML = newListing.description;
 
   newListingContainer.append(newListingDescription);
 
   const newListingEndsAt = document.createElement("div");
   newListingEndsAt.classList.add("new-listing-ends-at");
-  newListingEndsAt.innerHTML = `Action ends ${newListing.endsAt}`;
+  newListingEndsAt.innerHTML = `Action ends at ${newListing.endsAt}`;
 
   newListingContainer.append(newListingEndsAt);
 
 }
 
+
+//REDIRECT TO PROFILE PAGE LINK
+
+function getUserName() {
+  const user =  localStorage.getItem("profile"); 
+
+  if (user) {
+    const userNameJSON = JSON.parse(user);
+    const userName = userNameJSON.name;
+
+    return userName;
+  } else {
+    console.error("User profile not found in local storage.");
+    return null;
+  }
+
+}
+
+function getUserProfile() {
+  const userName = getUserName();
+
+  if(userName) {
+    const navOptionsProfileContainer = document.querySelector(".nav-options");
+
+    const linkToProfile = document.createElement("a");
+    linkToProfile.href = `/profile/index.html?name=${userName}`;
+    linkToProfile.innerText = "Profile";
+  
+    navOptionsProfileContainer.append(linkToProfile)
+   
+  } else {
+    console.error("Get requires a name");
+  }
+}
+
+getUserProfile()
