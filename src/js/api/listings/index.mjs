@@ -6,12 +6,67 @@ const listingsContainer = document.querySelector(".listings-Container");
 //FETCH API
 
 async function getListings() {
-  const updateListingsURL = `${API_AUCTION_URL}${action}`;
- const response = await fetch(updateListingsURL);
- const listings = await response.json()
+  const limit = 100;
+  let offset = 0;
+  let totalListings = 0;
+  const allListings = [];
 
- return listings;
+  try {
+    while(totalListings < 1200) {
+      const getListingsURL =  `${API_AUCTION_URL}${action}?sort=created&sortOrder=desc&limit=${limit}&offset=${offset}`;
+  
+      const response = await fetch(getListingsURL);
+
+      if(!response.ok) {
+        throw new Error(`Failed to fetch listings. Status: ${response.status}`);
+      }
+      const fetchListings = await response.json();
+
+      if (!Array.isArray(fetchListings)) {
+        throw new Error('Invalid response format. Expected an array.');
+      }
+      
+      if(fetchListings.length === 0) {
+        break;
+      }
+
+    allListings.push(...fetchListings);
+    totalListings += fetchListings.length;
+    offset += limit;
+  }
+
+  return allListings;
+
+  } catch(error) {
+    console.error(error.message);
+    return[];
+  }
+    
 }
+
+
+async function displayOnlyRelativeListings() {
+
+  try {
+    const allListings = await getListings();
+
+    const onlyImportantListings = allListings.filter((listing) =>
+    ['sofa', 'table', 'desk', 'lamp', 'cutlery', 'rug', 'carpet', 'armchair', 'painting', 'vase'].some(tag => listing.tags.includes(tag)));
+    
+    return onlyImportantListings;
+  } catch (error) {
+    console.log(error.message);
+  }
+ 
+}
+
+displayOnlyRelativeListings();
+
+
+
+
+
+
 
 
 //CREATE LISTING
@@ -21,7 +76,6 @@ function createListingHTML(listing) {
   listingContainer.classList.add("card");
 
   listingsContainer.append(listingContainer);
-
 
   //MEDIA
   
@@ -37,15 +91,10 @@ function createListingHTML(listing) {
   
     listingContainer.append(img);
   }
-
-  // const mediaValue = listing.media[0];
-
-  // if(!listing.media.includes(mediaValue)) {
-  //   listingContainer.style.display = "none";
-  // }
   
   const listingBody = document.createElement("section");
   listingBody.classList.add("card-body");
+  listingBody.classList.add("mt-4");
   listingContainer.append(listingBody);
 
   const listingBodyInfo = document.createElement("div");
@@ -84,7 +133,7 @@ function createListingHTML(listing) {
   listingBody.append(listingBodyBTN);
 
   const redirectDetails = document.createElement("a");
-  redirectDetails.href =  `/listing/edit/index.html?id=${listing.id}`;
+  redirectDetails.href =  `/listing/details/index.html?id=${listing.id}`;
 
   listingBodyBTN.append(redirectDetails);
 
@@ -95,15 +144,15 @@ function createListingHTML(listing) {
 }
 
 
-function createListingsHTML (listings) {
-  for (let i = 0; i < listings.length; i++) {
-    const listing = listings[i];
+function createListingsHTML (futureAuctions) {
+  for (let i = 0; i < futureAuctions.length; i++) {
+    const listing = futureAuctions[i];
     createListingHTML(listing);
   }
 }
 
 async function listingsSection () {
-  const listings = await getListings();
+  const listings = await displayOnlyRelativeListings();
   createListingsHTML(listings);
 }
 
@@ -120,21 +169,87 @@ const searchBox = document.querySelector(".search-input");
 searchBox.onkeyup = function() {
   const searchInput = searchBox.value.toLowerCase();
   const listingCards = document.querySelectorAll(".card")
-  const listingTags = document.querySelectorAll(".listing-tags");
+  const listingName = document.querySelectorAll(".card-title");
+
+  console.log(listingName)
   
   
-  for(let i = 0; i < listingTags.length; i++) {
-    let tags = listingTags[i].innerText.toLowerCase();
+  for(let i = 0; i < listingName.length; i++) {
+    let names = listingName[i].innerText.toLowerCase();
     const card = listingCards[i];
 
-    if(searchInput.trim() === "" || tags.includes(searchInput)) {
+    if(searchInput.trim() === "" || names.includes(searchInput)) {
       card.style.display = "";
     } else {
       card.style.display = "none";
     }
-
-    console.log("searchInput:", searchInput);
-console.log("tags:", tags);
    
   }
 }
+
+
+
+
+
+
+//CATEGORIES FILTER
+
+
+const sofas = document.querySelector("#sofas");
+  const tables = document.querySelector("#tables");
+  const chairs = document.querySelector("#chairs");
+  const rugs = document.querySelector("#rugs");
+  const cutlery = document.querySelector("#cutlery");
+  const lamps = document.querySelector("#lamps");
+  const paintings = document.querySelector("#paintings");
+  const vases = document.querySelector("#vases");
+
+  function filterByCategories(category) {
+    const listingCards = document.querySelectorAll(".card");
+    const listingName = document.querySelectorAll(".card-title");
+  
+    for (let i = 0; i < listingName.length; i++) {
+      let names = listingName[i].innerText.toLowerCase();
+      const card = listingCards[i];
+  
+      if (names.includes(category)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  }
+
+  tables.onclick = function () {
+    filterByCategories("table")
+  }
+
+  sofas.onclick = function () {
+    filterByCategories("sofa")
+  }
+
+  chairs.onclick = function () {
+    filterByCategories("chair")
+  }
+
+  rugs.onclick = function () {
+    filterByCategories("rug")
+  }
+
+  cutlery.onclick = function () {
+    filterByCategories("cutlery")
+  }
+
+  lamps.onclick = function () {
+    filterByCategories("lamp")
+  }
+
+  paintings.onclick = function () {
+    filterByCategories("painting")
+  }
+
+  vases.onclick = function () {
+    filterByCategories("vases")
+  }
+  
+
