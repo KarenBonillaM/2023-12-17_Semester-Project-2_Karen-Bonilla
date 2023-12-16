@@ -24,7 +24,3 @@ function setLogoutBTN() {
 }
 
 setLogoutBTN()
-
-const token = localStorage.getItem("token");
-
-console.log(token)

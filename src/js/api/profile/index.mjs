@@ -27,7 +27,7 @@ async function authFetch(url, options = {}) {
 
 
 //FETCH USER PROFILE
-async function getUserProfile(name) {
+export async function getUserProfile(name) {
   if(!name) {
     throw new Error ("Get requires a name");
   }
@@ -43,32 +43,38 @@ async function getUserProfile(name) {
 async function createProfileHTML(){
   const user = await getUserProfile(name);
   const profileContainer = document.querySelector(".profile-header");
+  const profileCredits = document.querySelector(".profile-credits");
+  const titleProfilePage = document.querySelector("#titleProfile");
 
-  const userProfileContainer = document.createElement("div");
-  userProfileContainer.classList.add("user-profile-card");
+  titleProfilePage.textContent = `${user.name} Profile`;
 
-  profileContainer.append(userProfileContainer);
+  // const userProfileContainer = document.createElement("div");
+  // userProfileContainer.classList.add("user-profile-card");
+
+  // profileContainer.append(userProfileContainer);
+
+
+  const userName = document.createElement("h2");
+  userName.classList.add("user-name");
+  userName.classList.add("mb-3");
+  userName.innerHTML = user.name;
+
+  profileContainer.append(userName);
 
   const userAvatar = document.createElement("img");
   userAvatar.classList.add("user-avatar");
   userAvatar.src = user.avatar;
 
-  userProfileContainer.append(userAvatar);
+  profileContainer.append(userAvatar);
 
-  const userName = document.createElement("h2");
-  userName.classList.add("user-name");
-  userName.classList.add("mt-4");
-  userName.innerHTML = user.name;
-
-  userProfileContainer.append(userName);
+  
 
   const userInfoContainer = document.createElement("div");
   userInfoContainer.classList.add("user-info");
-  profileContainer.append(userInfoContainer);
+  profileCredits.append(userInfoContainer);
 
   const userCredits = document.createElement("p");
   userCredits.classList.add("user-credits");
-  userCredits.classList.add("mt-5");
   userCredits.innerHTML = `You have ${user.credits} credits`;
 
   userInfoContainer.append(userCredits);
@@ -86,9 +92,6 @@ function load(key) {
     return null
   }
 }
-
-
-
 
 
 //FETCH USER LISTINGS
@@ -169,12 +172,17 @@ function createUserListingHTML(userListing) {
 
   const listingBodyBTN = document.createElement("div");
   listingBodyBTN.classList.add("listing-body-BTN");
-  listingBody.append(listingBodyBTN)
+  listingBody.append(listingBodyBTN);
 
-  const makeABidBTN = document.createElement("button");
-  makeABidBTN.classList.add("make-a-bid-BTN");
-  makeABidBTN.innerHTML = "Make a Bid";
-  listingBodyBTN.append(makeABidBTN);
+  const redirectDetails = document.createElement("a");
+  redirectDetails.href =  `/listing/edit/index.html?id=${userListing.id}`;
+
+  listingBodyBTN.append(redirectDetails);
+
+  const detailsBTN = document.createElement("button");
+  detailsBTN.classList.add("details-btn");
+  detailsBTN.innerHTML = "Listing Details";
+  redirectDetails.append(detailsBTN);
 }
 
 

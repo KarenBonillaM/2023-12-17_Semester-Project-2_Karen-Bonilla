@@ -10864,6 +10864,14 @@ footer a {
   padding-left: 0px;
 }
 
+.categories-container li {
+  cursor: pointer;
+}
+
+.categories-container li:hover {
+  color: #5788B4;
+}
+
 .card {
   background-color: #BFD7EC;
   border-radius: 0;
@@ -10894,6 +10902,15 @@ footer a {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.8em;
+}
+
+.make-a-bid-BTN:hover {
+  background-color: #E8D2F4;
+}
+
+.listing-details-container {
+  display: grid;
+  justify-items: center;
 }
 
 .section-register {
@@ -11118,6 +11135,7 @@ footer a {
 .body-bids {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
 }
 
 .bid-title {
@@ -11129,6 +11147,7 @@ footer a {
   display: flex;
   max-height: 50px;
   justify-content: space-between;
+  width: 560px;
 }
 
 #amount {
@@ -11140,6 +11159,7 @@ footer a {
   display: grid;
   justify-items: center;
   align-items: center;
+  margin: 20px 50px;
 }
 
 .listing-details-description {
@@ -11245,7 +11265,8 @@ footer a {
     width: 333px;
   }
   .btn-primary {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 5px;
   }
   .form-control {
     font-size: 0.8rem;
@@ -11334,11 +11355,15 @@ footer a {
   .listing-details-description {
     font-size: 1em;
   }
+  .body-bids {
+    column-gap: 0;
+  }
   #form-make-a-bid {
     max-height: 40px;
+    width: fit-content;
   }
   #amount {
-    max-width: 125px;
+    max-width: 110px;
   }
 }
 

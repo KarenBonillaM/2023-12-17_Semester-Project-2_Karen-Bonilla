@@ -12,7 +12,7 @@ async function getListings() {
   const allListings = [];
 
   try {
-    while(totalListings < 1200) {
+    while(totalListings < 1600) {
       const getListingsURL =  `${API_AUCTION_URL}${action}?sort=created&sortOrder=desc&limit=${limit}&offset=${offset}`;
   
       const response = await fetch(getListingsURL);
@@ -55,17 +55,11 @@ async function displayOnlyRelativeListings() {
     
     return onlyImportantListings;
   } catch (error) {
-    console.log(error.message);
+    throw new Error(error.message);
   }
- 
 }
 
 displayOnlyRelativeListings();
-
-
-
-
-
 
 
 
@@ -139,6 +133,7 @@ function createListingHTML(listing) {
 
   const makeABidBTN = document.createElement("button");
   makeABidBTN.classList.add("make-a-bid-BTN");
+  makeABidBTN.classList.add("btn");
   makeABidBTN.innerHTML = "Make a Bid";
   redirectDetails.append(makeABidBTN);
 }
@@ -171,7 +166,6 @@ searchBox.onkeyup = function() {
   const listingCards = document.querySelectorAll(".card")
   const listingName = document.querySelectorAll(".card-title");
 
-  console.log(listingName)
   
   
   for(let i = 0; i < listingName.length; i++) {
@@ -233,7 +227,7 @@ const sofas = document.querySelector("#sofas");
   }
 
   rugs.onclick = function () {
-    filterByCategories("rug")
+    filterByCategories("carpet")
   }
 
   cutlery.onclick = function () {

@@ -160,6 +160,14 @@ line-height: 2;
 padding-left: 0px;
 }
 
+.categories-container li {
+  cursor: pointer;
+}
+
+.categories-container li:hover {
+  color: $border-input-form;
+}
+
 .card {
   background-color: $card-bg-color;
   border-radius: 0;
@@ -190,6 +198,15 @@ padding-left: 0px;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.8em;
+}
+
+.make-a-bid-BTN:hover {
+  background-color: $categories-card-color;
+}
+
+.listing-details-container {
+  display: grid;
+  justify-items: center;
 }
 
 //REGISTER
@@ -424,6 +441,7 @@ padding-left: 0px;
 .body-bids {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
 }
 
 .bid-title {
@@ -435,6 +453,7 @@ padding-left: 0px;
   display: flex;
   max-height: 50px;
   justify-content: space-between;
+  width: 560px;
 }
 
 #amount {
@@ -448,6 +467,7 @@ padding-left: 0px;
   display: grid;
   justify-items: center;
   align-items: center;
+  margin: 20px 50px;
 }
 
 .listing-details-description {
@@ -576,7 +596,8 @@ padding-left: 0px;
   }
 
   .btn-primary {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 5px;
   }
 
   .form-control {
@@ -702,12 +723,17 @@ padding-left: 0px;
     font-size: 1em;
   }
 
+  .body-bids {
+    column-gap: 0;
+  }
+
   #form-make-a-bid {
     max-height: 40px;
+    width: fit-content;
   }
 
   #amount {
-    max-width: 125px;
+    max-width: 110px;
   }
 
 }

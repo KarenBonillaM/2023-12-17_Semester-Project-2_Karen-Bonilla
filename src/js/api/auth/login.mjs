@@ -37,16 +37,10 @@ async function login(profile) {
     window.location.href = redirectURL;
 
   } else {
-    console.error("Login failed. Status:", response.status);  
+    alert("Login failed"); 
   }
 
 }
-
-// if (savedProfile) {
-//   console.log("Profile is present:", savedProfile);
-// } else {
-//   console.log("Profile not found in localStorage");
-// }
 
 
 function setLoginForm() {
