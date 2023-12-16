@@ -10831,7 +10831,7 @@ footer a {
   text-align: center;
   font-family: "Playfair Display", serif;
   font-weight: bold;
-  color: #FFC815;
+  color: #f8d305;
   text-transform: uppercase;
 }
 
@@ -10983,6 +10983,12 @@ footer a {
 .about-us-container p {
   text-align: justify;
   font-size: 1.3em;
+}
+
+.btn-logout {
+  border: none;
+  background-color: #EEFDFF;
+  font-weight: bold;
 }
 
 .user-profile {

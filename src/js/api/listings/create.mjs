@@ -96,7 +96,8 @@ function createNewListing(newListing) {
   newListingContainer.append(newListingTitle);
 
   const newListingMedia = document.createElement("img");
-  newListingMedia.src = newListing.media
+  newListingMedia.src = newListing.media;
+  newListingMedia.alt = newListing.title;
   newListingMedia.classList.add("new-listing-media");
   newListingMedia.classList.add("thumbnail-img");
   newListingMedia.classList.add("img-fluid");

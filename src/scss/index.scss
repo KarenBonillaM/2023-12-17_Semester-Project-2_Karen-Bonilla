@@ -127,7 +127,7 @@ footer a {
   text-align: center;
   font-family: $font-family-titles;
   font-weight: bold;
-  color: #FFC815;
+  color: #f8d305;
   text-transform: uppercase;
 }
 
@@ -285,6 +285,12 @@ padding-left: 0px;
 }
 
 //USER PROFILE
+
+.btn-logout {
+  border: none;
+  background-color: $body-bg-color;
+  font-weight: bold;
+}
 
 .user-profile {
   background-color: #E3F8FB;
