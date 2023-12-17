@@ -7,12 +7,6 @@ function save(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-// function getProfile() {
-//   return localStorage.getItem("profile");
-// }
-
-// const savedProfile = getProfile();
-
 async function login(profile) {
   const loginURL = API_AUCTION_URL + action;
   const body = JSON.stringify(profile);

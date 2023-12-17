@@ -48,11 +48,6 @@ async function createProfileHTML(){
 
   titleProfilePage.textContent = `${user.name} Profile`;
 
-  // const userProfileContainer = document.createElement("div");
-  // userProfileContainer.classList.add("user-profile-card");
-
-  // profileContainer.append(userProfileContainer);
-
 
   const userName = document.createElement("h2");
   userName.classList.add("user-name");
@@ -130,11 +125,6 @@ function createUserListingHTML(userListing) {
     listingContainer.append(img);
   }
 
-  // const mediaValue = listing.media[0];
-
-  // if(!listing.media.includes(mediaValue)) {
-  //   listingContainer.style.display = "none";
-  // }
   
   const listingBody = document.createElement("section");
   listingBody.classList.add("card-body");
@@ -151,16 +141,6 @@ function createUserListingHTML(userListing) {
 
   listingTitle.innerHTML = userListing.title;
   listingBodyInfo.append(listingTitle);
-
-  //TAGS
-
-  // for(let i = 0; i < userListing.tags.length; i ++) {
-  //   const tag = userListing.tags[i];
-  //   const listingTags = document.createElement("p");
-  //   listingTags.classList.add("listing-tags");
-  //   listingTags.innerHTML = tag;
-  //   listingBodyInfo.append(listingTags);
-  // }
 
   //BIDS
 
