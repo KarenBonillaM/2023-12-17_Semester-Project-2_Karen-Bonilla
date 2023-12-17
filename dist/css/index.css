@@ -10904,8 +10904,10 @@ footer a {
   font-size: 0.8em;
 }
 
+.details-btn:hover,
 .make-a-bid-BTN:hover {
   background-color: #E8D2F4;
+  color: #394C63;
 }
 
 .listing-details-container {
@@ -11142,15 +11144,15 @@ footer a {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.body-bids {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 20px;
-}
-
 .bid-title {
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.body-bids-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 15px;
 }
 
 #form-make-a-bid {
@@ -11217,6 +11219,9 @@ footer a {
 @media (max-width: 799px) {
   h1, .h1 {
     font-size: 1.5em;
+  }
+  .nav-options {
+    justify-content: left;
   }
   .nav-options-disappear {
     display: none;
