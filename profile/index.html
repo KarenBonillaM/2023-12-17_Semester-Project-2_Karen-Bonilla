@@ -23,6 +23,10 @@
       defer></script>
     <script src="/src/js/nav/nav.mjs" type="module" refer></script>
     <script src="/src/js/api/auth/logout.mjs" type="module" defer></script>
+    <script
+      src="/src/js/api/listings/categories.mjs"
+      type="module"
+      defer></script>
   </head>
   <body>
     <header>
@@ -58,7 +62,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <section class="nav-options col-3">
+          <section class="nav-options nav-options-disappear col-3">
             <a href="/index.html">Home</a>
             <button class="btn-logout">Logout</button>
           </section>
@@ -96,14 +100,14 @@
           <div>
             <h2 class="categories-title">Categories</h2>
             <ul>
-              <li>Sofas</li>
-              <li>Tables</li>
-              <li>Chairs</li>
-              <li>Rugs</li>
-              <li>Cutlery</li>
-              <li>Lamps</li>
-              <li>Paintings</li>
-              <li>Vases</li>
+              <li id="sofas">Sofas</li>
+              <li id="tables">Tables</li>
+              <li id="chairs">Chairs</li>
+              <li id="rugs">Rugs</li>
+              <li id="cutlery">Cutlery</li>
+              <li id="lamps">Lamps</li>
+              <li id="paintings">Paintings</li>
+              <li id="vases">Vases</li>
             </ul>
           </div>
         </section>
