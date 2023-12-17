@@ -18,6 +18,11 @@
     <title>Home Page | Decor Auction</title>
     <script src="/src/js/api/listings/index.mjs" type="module" defer></script>
     <script src="/src/js/nav/nav.mjs" type="module" refer></script>
+    <script
+      src="/src/js/api/listings/categories.mjs"
+      type="module"
+      refer></script>
+    <script src="/src/js/api/listings/homeNav.mjs" type="module" refer></script>
   </head>
   <body>
     <header>
@@ -53,10 +58,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <section class="nav-options col-3">
-            <a href="/profile/register">Register</a>
-            <a href="/profile/login/">Login</a>
-          </section>
+          <section class="nav-options nav-options-disappear col-3"></section>
         </section>
       </nav>
     </header>
