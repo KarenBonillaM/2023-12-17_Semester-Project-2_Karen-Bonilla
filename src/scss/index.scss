@@ -155,17 +155,45 @@ footer a {
 
 .categories-container ul {
 list-style-type: none;
-font-size: 1.8em;
+font-size: 1.5em;
 line-height: 2;
 padding-left: 0px;
+display: flex;
+flex-direction: column;
+flex: 1 1 0%;
+gap: 0.25rem;
+padding-top: 0.75rem;
+padding-bottom: 0.75rem;
 }
 
 .categories-container li {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 12px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
 }
 
 .categories-container li:hover {
   color: $border-input-form;
+  background-color: $categories-card-hover-color;
+}
+
+.categories-icon {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+.categories-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.2em;
 }
 
 .card {
