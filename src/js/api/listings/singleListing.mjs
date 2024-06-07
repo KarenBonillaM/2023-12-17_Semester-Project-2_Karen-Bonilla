@@ -47,14 +47,28 @@ function createListingDetailsHTML(listing) {
 
   const listingDescription = document.createElement("p");
   listingDescription.classList.add("listing-details-description");
-  listingDescription.innerHTML = listing.description;
+  listingDescription.innerHTML = listing.description[0].toUpperCase() + listing.description.slice(1).toLowerCase();
 
   listingDetailsContainer.append(listingDescription);
+
+
+  //Convert the listing.endsAt to a date object
+  const endsAtDate = new Date(listing.endsAt);
+
+  const formattedEndsAt = endsAtDate.toLocaleString("en-GB", { 
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+  });
+  
 
   const listingEndsAt = document.createElement("div");
   listingEndsAt.classList.add("listing-details-endsAt");
   listingEndsAt.classList.add("mb-3");
-  listingEndsAt.textContent = `Listing ends at: ${listing.endsAt}`;
+  listingEndsAt.textContent = `Listing ends on: ${formattedEndsAt}`;
 
   listingDetailsContainer.append(listingEndsAt);
 }
@@ -104,9 +118,20 @@ function createListingBidHTML(listingBid) {
 
   //BID DATE CREATED
 
+  const bidCreatedAtDate = new Date(listingBid.created);
+
+  const formattedEndsAt = bidCreatedAtDate.toLocaleString("en-GB", { 
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+  });
+
   const bidCreated = document.createElement("div");
   bidCreated.classList.add("bid-created");
-  bidCreated.textContent = listingBid.created;
+  bidCreated.textContent = formattedEndsAt;
 
   bidsCreatedDateContainer.append(bidCreated);
 
