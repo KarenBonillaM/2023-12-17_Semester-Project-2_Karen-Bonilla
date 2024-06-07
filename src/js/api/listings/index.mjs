@@ -13,7 +13,7 @@ async function getListings() {
 
   try {
     while(totalListings < 1600) {
-      const getListingsURL =  `${API_AUCTION_URL}${action}?sort=created&sortOrder=desc&limit=${limit}&offset=${offset}`;
+      const getListingsURL =  `${API_AUCTION_URL}${action}?sort=created&sortOrder=asc&limit=${limit}&offset=${offset}`;
   
       const response = await fetch(getListingsURL);
 
