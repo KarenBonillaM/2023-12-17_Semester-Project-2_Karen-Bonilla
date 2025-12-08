@@ -15,7 +15,6 @@ async function getListings() {
     while(totalListings < 1600) {
       const getListingsURL =  `${API_AUCTION_URL}${action}?sort=created&sortOrder=asc&limit=${limit}&offset=${offset}`;
 
-      console.log(getListingsURL);
   
       const response = await fetch(getListingsURL);
 
@@ -25,8 +24,6 @@ async function getListings() {
 
       const json = await response.json();
       const fetchListings = json.data;
-
-      console.log(fetchListings);
 
       if (!Array.isArray(fetchListings)) {
         throw new Error('Invalid response format. Expected an array.');
@@ -86,7 +83,9 @@ function createListingHTML(listing) {
     img.classList.add("img-thumbnail");
     img.classList.add("card-img-top");
 
-    img.src = listing.media?.[0] || "";
+    console.log(listing.media);
+
+    img.src = listing.media;
     img.alt = `Image from ${listing.tile}`;
   
     listingContainer.append(img);
