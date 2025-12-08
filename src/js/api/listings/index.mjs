@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from "../constans.mjs";
+import { API_AUCTION_URL } from "../constants.mjs";
 
 const action = "/listings";
 const listingsContainer = document.querySelector(".listings-Container");
@@ -14,13 +14,19 @@ async function getListings() {
   try {
     while(totalListings < 1600) {
       const getListingsURL =  `${API_AUCTION_URL}${action}?sort=created&sortOrder=asc&limit=${limit}&offset=${offset}`;
+
+      console.log(getListingsURL);
   
       const response = await fetch(getListingsURL);
 
       if(!response.ok) {
         throw new Error(`Failed to fetch listings. Status: ${response.status}`);
       }
-      const fetchListings = await response.json();
+
+      const json = await response.json();
+      const fetchListings = json.data;
+
+      console.log(fetchListings);
 
       if (!Array.isArray(fetchListings)) {
         throw new Error('Invalid response format. Expected an array.');
@@ -80,7 +86,7 @@ function createListingHTML(listing) {
     img.classList.add("img-thumbnail");
     img.classList.add("card-img-top");
 
-    img.src = listing.media;
+    img.src = listing.media?.[0] || "";
     img.alt = `Image from ${listing.tile}`;
   
     listingContainer.append(img);

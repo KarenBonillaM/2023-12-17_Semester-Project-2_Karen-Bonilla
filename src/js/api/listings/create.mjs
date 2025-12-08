@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from "../constans.mjs";
+import { API_AUCTION_URL } from "../constants.mjs";
 
 const action = "/listings";
 const method = "post";
@@ -31,6 +31,7 @@ async function authFetch(url, options = {}) {
 
 async function createListing(listingData) {
   const createListingURL = API_AUCTION_URL + action;
+
 
   const response = await authFetch(createListingURL, {
     method,

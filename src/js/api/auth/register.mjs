@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from "../constans.mjs";
+import { API_AUCTION_URL } from "../constants.mjs";
 
 const action = "/auth/register";
 const method = "post";

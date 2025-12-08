@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from "../constans.mjs";
+import { API_AUCTION_URL } from "../constants.mjs";
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
