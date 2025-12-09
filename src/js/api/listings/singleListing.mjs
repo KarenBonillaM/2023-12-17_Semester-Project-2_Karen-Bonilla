@@ -16,6 +16,8 @@ async function fetchListing() {
 
   const listing = await response.json();
 
+  console.log(listing);
+
   return listing;
 }
 
