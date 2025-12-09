@@ -42,20 +42,20 @@ function createListingDetailsHTML(listing) {
   listingMedia.classList.add("img-thumbnail");
   listingMedia.classList.add("mb-4");
   listingMedia.src = listing.data.media[0].url;
-  listingMedia.alt = `Image from ${listing.title}`;
+  listingMedia.alt = `Image from ${listing.data.title}`;
 
   listingDetailsContainer.append(listingMedia)
 
 
   const listingDescription = document.createElement("p");
   listingDescription.classList.add("listing-details-description");
-  listingDescription.innerHTML = listing.description[0].toUpperCase() + listing.description.slice(1).toLowerCase();
+  listingDescription.innerHTML = listing.data.description[0].toUpperCase() + listing.data.description.slice(1).toLowerCase();
 
   listingDetailsContainer.append(listingDescription);
 
 
   //Convert the listing.endsAt to a date object
-  const endsAtDate = new Date(listing.endsAt);
+  const endsAtDate = new Date(listing.data.endsAt);
 
   const formattedEndsAt = endsAtDate.toLocaleString("en-GB", { 
     month: "long",
