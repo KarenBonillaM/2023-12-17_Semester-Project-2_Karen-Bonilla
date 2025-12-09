@@ -16,9 +16,9 @@ async function fetchListing() {
 
   const listing = await response.json();
 
-  console.log(listing);
+  console.log(listing.data.title);
 
-  return listing.data.title;
+  return listing;
 }
 
 function createListingDetailsHTML(listing) {
