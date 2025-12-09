@@ -85,7 +85,7 @@ function createListingHTML(listing) {
 
     console.log(listing.media.url);
 
-    img.src = listing.media;
+    img.src = listing.media.url;
     img.alt = `Image from ${listing.tile}`;
   
     listingContainer.append(img);
