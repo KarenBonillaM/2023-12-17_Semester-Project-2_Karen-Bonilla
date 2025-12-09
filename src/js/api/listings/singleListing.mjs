@@ -14,9 +14,9 @@ async function fetchListing() {
   const getListingURL = `${API_AUCTION_URL}${action}`;
   const response = await fetch(getListingURL);
 
-  const listing = await response.json();
+  const listingData = await response.json();
 
-  console.log(listing.data);
+  const listing = listingData.data;
 
   return listing;
 }
@@ -29,9 +29,9 @@ function createListingDetailsHTML(listing) {
   listingTitle.classList.add("listing-details-title");
   listingTitle.classList.add("mt-5");
   listingTitle.classList.add("mb-4");
-  listingTitle.innerHTML = listing.data.title;
+  listingTitle.innerHTML = listing.title;
 
-  title.innerText = listing.data.title;
+  title.innerText = listing.title;
 
   listingDetailsContainer.append(listingTitle);
 
@@ -41,21 +41,21 @@ function createListingDetailsHTML(listing) {
   listingMedia.classList.add("img-fluid");
   listingMedia.classList.add("img-thumbnail");
   listingMedia.classList.add("mb-4");
-  listingMedia.src = listing.data.media[0].url;
-  listingMedia.alt = `Image from ${listing.data.title}`;
+  listingMedia.src = listing.media[0].url;
+  listingMedia.alt = `Image from ${listing.title}`;
 
   listingDetailsContainer.append(listingMedia)
 
 
   const listingDescription = document.createElement("p");
   listingDescription.classList.add("listing-details-description");
-  listingDescription.innerHTML = listing.data.description[0].toUpperCase() + listing.data.description.slice(1).toLowerCase();
+  listingDescription.innerHTML = listing.description[0].toUpperCase() + listing.description.slice(1).toLowerCase();
 
   listingDetailsContainer.append(listingDescription);
 
 
   //Convert the listing.endsAt to a date object
-  const endsAtDate = new Date(listing.data.endsAt);
+  const endsAtDate = new Date(listing.endsAt);
 
   const formattedEndsAt = endsAtDate.toLocaleString("en-GB", { 
     month: "long",
