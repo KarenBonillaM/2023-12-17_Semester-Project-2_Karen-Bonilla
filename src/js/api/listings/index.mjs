@@ -83,7 +83,7 @@ function createListingHTML(listing) {
     img.classList.add("img-thumbnail");
     img.classList.add("card-img-top");
 
-    console.log(listing.media);
+    console.log(listing.media.url);
 
     img.src = listing.media;
     img.alt = `Image from ${listing.tile}`;
