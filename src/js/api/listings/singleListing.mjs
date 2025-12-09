@@ -18,7 +18,7 @@ async function fetchListing() {
 
   console.log(listing);
 
-  return listing;
+  return listing.data.title;
 }
 
 function createListingDetailsHTML(listing) {
