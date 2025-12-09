@@ -55,8 +55,6 @@ async function displayOnlyRelativeListings() {
 
     const onlyImportantListings = allListings.filter((listing) =>
     ['sofa', 'table', 'desk', 'lamp', 'cutlery', 'rug', 'carpet', 'armchair', 'painting', 'vase'].some(tag => listing.tags.includes(tag)));
-
-    console.log(allListings)
     
     return onlyImportantListings;
   } catch (error) {
@@ -84,8 +82,6 @@ function createListingHTML(listing) {
     img.classList.add("img-fluid");
     img.classList.add("img-thumbnail");
     img.classList.add("card-img-top");
-
-    console.log(listing);
 
     img.src = listing.media[0].url;
     img.alt = `Image from ${listing.tile}`;

@@ -39,7 +39,7 @@ function createListingDetailsHTML(listing) {
   listingMedia.classList.add("img-fluid");
   listingMedia.classList.add("img-thumbnail");
   listingMedia.classList.add("mb-4");
-  listingMedia.src = listing.media;
+  listingMedia.src = listing.media[0].url;
   listingMedia.alt = `Image from ${listing.title}`;
 
   listingDetailsContainer.append(listingMedia)
