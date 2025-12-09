@@ -16,7 +16,7 @@ async function fetchListing() {
 
   const listing = await response.json();
 
-  console.log(listing.data.title);
+  console.log(listing.data);
 
   return listing;
 }
@@ -29,9 +29,9 @@ function createListingDetailsHTML(listing) {
   listingTitle.classList.add("listing-details-title");
   listingTitle.classList.add("mt-5");
   listingTitle.classList.add("mb-4");
-  listingTitle.innerHTML = listing.title;
+  listingTitle.innerHTML = listing.data.title;
 
-  title.innerText = listing.title;
+  title.innerText = listing.data.title;
 
   listingDetailsContainer.append(listingTitle);
 
@@ -41,7 +41,7 @@ function createListingDetailsHTML(listing) {
   listingMedia.classList.add("img-fluid");
   listingMedia.classList.add("img-thumbnail");
   listingMedia.classList.add("mb-4");
-  listingMedia.src = listing.media[0].url;
+  listingMedia.src = listing.data.media[0].url;
   listingMedia.alt = `Image from ${listing.title}`;
 
   listingDetailsContainer.append(listingMedia)
